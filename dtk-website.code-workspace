@@ -1,0 +1,12 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "liveServer.settings.root": "/",
+    "liveServer.settings.file": "404.html",
+    "liveServer.settings.port": 5500
+  }
+}

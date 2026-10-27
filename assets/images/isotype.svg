@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 647 602" fill="#fff">
+  <title>Isotype</title>
+  <defs>
+    <linearGradient id="upper-metal" x1="100" y1="20" x2="300" y2="278" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff"/><stop offset="1" stop-color="#e9e9eb"/>
+    </linearGradient>
+    <linearGradient id="lower-metal" x1="208" y1="278" x2="620" y2="490" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#98999f"/><stop offset="0.34" stop-color="#dadade"/><stop offset="1" stop-color="#f9f9fa"/>
+    </linearGradient>
+  </defs>
+  <path id="isotype-1" fill="url(#upper-metal)" d="M 1.5 277.5 L 1.500 86.500 C 1.500 26.150 97.505 -46.495 184.500 40.500 Q 291 155 399.5 277.5 Z"/>
+  <path id="isotype-2" fill="url(#lower-metal)" d="M 207.5 277.5 H 645.5 V 508.500 C 645.500 573.808 547.949 648.949 462.500 563.500 Q 334 420 207.5 277.5 Z"/>
+</svg>

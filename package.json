@@ -1,0 +1,20 @@
+{
+  "name": "dtk-website",
+  "version": "2.0.12",
+  "private": true,
+  "type": "module",
+  "description": "DuoThink: sites, plataformas internas, aplicativos, SEO e design de marca.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node tools/serve.mjs",
+    "build": "node tools/build.mjs",
+    "preview": "node tools/serve.mjs --production",
+    "check": "node tools/check.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:browser": "node tests/browser.mjs",
+    "test:isotype": "node tests/isotype-browser.mjs",
+    "assets:version": "node tools/version-assets.mjs"
+  }
+}

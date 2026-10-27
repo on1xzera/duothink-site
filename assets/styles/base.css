@@ -1,0 +1,2046 @@
+@media (min-width: 1200px) {
+  .hide-on-desktop {
+    display: none !important;
+  }
+}
+@media (min-width: 810px) and (max-width: 1199.98px) {
+  .hide-on-tablet {
+    display: none !important;
+  }
+}
+@media (max-width: 809.98px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+}
+#main,
+body,
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: inherit;
+}
+
+h1,
+h2,
+h5,
+p {
+  margin: 0;
+}
+body,
+button,
+input,
+select,
+textarea {
+  font-family: sans-serif;
+  font-size: 12px;
+}
+body {
+  --color-heading: #e5e5e5;
+  --color-black: #000;
+  --color-muted: #737373;
+  --color-near-black: #0b0b0b;
+  --color-transparent: #0a0a0a00;
+  --color-brand: #820ad1;
+  --color-background: #0a0a0a;
+  --color-surface: #0f0f0f;
+  --color-surface-raised: #141414;
+  --color-border: #262626;
+  --color-brand-soft: #d6b3ff;
+  --color-brand-dark: #59088e;
+  --color-brand-shadow: #2d1248;
+  --color-brand-deep: #140b1d;
+  --color-accent: #a855f7;
+  --color-rating: #d6b3ff;
+  --color-overlay-muted: #ccc3;
+  --color-overlay-light: #ffffff1a;
+  --color-secondary: #a3a3a3;
+  --color-background-adaptive: #0a0a0a;
+  --color-dim: #525252;
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    --color-background-adaptive: #0a0a0a;
+    --color-dim: #525252;
+  }
+}
+@supports (background: -webkit-named-image(i)) and (not (grid-template-rows: subgrid)) {
+  body {
+    --design-will-change-override: transform;
+  }
+}
+@supports (background: -webkit-named-image(i)) and (not (position-area: top right)) {
+  body {
+    --design-will-change-filter-override: filter;
+  }
+}
+[data-content='text'] a,
+[data-content='text'] a div span,
+[data-content='text'] div div span,
+[data-content='text'] h1 span span,
+[data-content='text'] h2 span span,
+[data-content='text'] h5 span span,
+[data-content='text'] p span span,
+[data-content='text'] span span span {
+  font-family: var(--font-family);
+  font-style: var(--font-style);
+  font-weight: min(calc(var(--design-font-weight-increase, 0) + var(--font-weight, 400)), 900);
+  color: var(--text-color);
+  letter-spacing: var(--letter-spacing);
+  font-size: var(--font-size);
+  text-transform: var(--text-transform);
+  --text-decoration: var(--design-text-decoration-style, solid) var(--design-text-decoration, none)
+    var(--design-text-decoration-color, currentcolor) var(--design-text-decoration-thickness, auto);
+  --text-decoration-skip-ink: var(--design-text-decoration-skip-ink);
+  --text-underline-offset: var(--design-text-decoration-offset);
+  line-height: var(--line-height);
+  --font-family: var(--design-font-family);
+  --font-style: var(--design-font-style);
+  --font-weight: var(--design-font-weight);
+  --text-color: var(--design-text-color);
+  --letter-spacing: var(--design-letter-spacing);
+  --font-size: var(--design-font-size);
+  --text-transform: var(--design-text-transform);
+  --line-height: var(--design-line-height);
+}
+@supports not (color: color(display-p3 1 1 1)) {
+  div.rich-text,
+  h1.rich-text,
+  h2.rich-text,
+  h5.rich-text,
+  li.rich-text,
+  p.rich-text,
+  span.rich-text:not([data-text-fill]),
+  ul.rich-text {
+    color: var(
+      --design-blockquote-text-color-rgb,
+      var(
+        --design-blockquote-text-color,
+        var(--design-text-color-rgb, var(--design-text-color, #000))
+      )
+    );
+    -webkit-text-stroke-color: var(
+      --design-text-stroke-color-rgb,
+      var(--design-text-stroke-color, initial)
+    );
+  }
+  a.rich-text,
+  span.rich-text[data-nested-link] {
+    color: var(
+      --design-link-text-color-rgb,
+      var(
+        --design-link-text-color,
+        var(
+          --design-blockquote-text-color-rgb,
+          var(
+            --design-blockquote-text-color,
+            var(--design-text-color-rgb, var(--design-text-color, #000))
+          )
+        )
+      )
+    );
+    background-color: var(
+      --design-link-text-background-color-rgb,
+      var(--design-link-text-background-color, initial)
+    );
+    -webkit-text-decoration-color: var(
+      --design-link-text-decoration-color-rgb,
+      var(
+        --design-link-text-decoration-color,
+        var(--design-text-decoration-color-rgb, var(--design-text-decoration-color, currentcolor))
+      )
+    );
+    text-decoration-color: var(
+      --design-link-text-decoration-color-rgb,
+      var(
+        --design-link-text-decoration-color,
+        var(--design-text-decoration-color-rgb, var(--design-text-decoration-color, currentcolor))
+      )
+    );
+  }
+  a.rich-text:hover,
+  span.rich-text[data-nested-link]:hover {
+    color: var(
+      --design-link-hover-text-color-rgb,
+      var(
+        --design-link-hover-text-color,
+        var(
+          --design-link-text-color-rgb,
+          var(
+            --design-link-text-color,
+            var(
+              --design-blockquote-text-color-rgb,
+              var(
+                --design-blockquote-text-color,
+                var(--design-text-color-rgb, var(--design-text-color, #000))
+              )
+            )
+          )
+        )
+      )
+    );
+    background-color: var(
+      --design-link-hover-text-background-color-rgb,
+      var(
+        --design-link-hover-text-background-color,
+        var(
+          --design-link-text-background-color-rgb,
+          var(
+            --design-link-text-background-color,
+            var(--design-text-background-color-rgb, var(--design-text-background-color, initial))
+          )
+        )
+      )
+    );
+    -webkit-text-decoration-color: var(
+      --design-link-hover-text-decoration-color-rgb,
+      var(
+        --design-link-hover-text-decoration-color,
+        var(
+          --design-link-text-decoration-color-rgb,
+          var(
+            --design-link-text-decoration-color,
+            var(
+              --design-text-decoration-color-rgb,
+              var(--design-text-decoration-color, currentcolor)
+            )
+          )
+        )
+      )
+    );
+    text-decoration-color: var(
+      --design-link-hover-text-decoration-color-rgb,
+      var(
+        --design-link-hover-text-decoration-color,
+        var(
+          --design-link-text-decoration-color-rgb,
+          var(
+            --design-link-text-decoration-color,
+            var(
+              --design-text-decoration-color-rgb,
+              var(--design-text-decoration-color, currentcolor)
+            )
+          )
+        )
+      )
+    );
+  }
+  a.rich-text[aria-current],
+  span.rich-text[aria-current] {
+    color: var(
+      --design-link-current-text-color-rgb,
+      var(
+        --design-link-current-text-color,
+        var(
+          --design-link-text-color-rgb,
+          var(
+            --design-link-text-color,
+            var(--design-text-color-rgb, var(--design-text-color, #000))
+          )
+        )
+      )
+    );
+    background-color: var(
+      --design-link-current-text-background-color-rgb,
+      var(
+        --design-link-current-text-background-color,
+        var(
+          --design-link-text-background-color-rgb,
+          var(
+            --design-link-text-background-color,
+            var(--design-text-background-color-rgb, var(--design-text-background-color, initial))
+          )
+        )
+      )
+    );
+    -webkit-text-decoration-color: var(
+      --design-link-current-text-decoration-color-rgb,
+      var(
+        --design-link-current-text-decoration-color,
+        var(
+          --design-link-text-decoration-color-rgb,
+          var(
+            --design-link-text-decoration-color,
+            var(
+              --design-text-decoration-color-rgb,
+              var(--design-text-decoration-color, currentcolor)
+            )
+          )
+        )
+      )
+    );
+    text-decoration-color: var(
+      --design-link-current-text-decoration-color-rgb,
+      var(
+        --design-link-current-text-decoration-color,
+        var(
+          --design-link-text-decoration-color-rgb,
+          var(
+            --design-link-text-decoration-color,
+            var(
+              --design-text-decoration-color-rgb,
+              var(--design-text-decoration-color, currentcolor)
+            )
+          )
+        )
+      )
+    );
+  }
+  a.rich-text[aria-current]:hover,
+  span.rich-text[aria-current]:hover {
+    -webkit-text-decoration-color: var(
+      --design-link-hover-text-decoration-color-rgb,
+      var(
+        --design-link-hover-text-decoration-color,
+        var(
+          --design-link-current-text-decoration-color-rgb,
+          var(
+            --design-link-current-text-decoration-color,
+            var(
+              --design-link-text-decoration-color-rgb,
+              var(
+                --design-link-text-decoration-color,
+                var(
+                  --design-text-decoration-color-rgb,
+                  var(--design-text-decoration-color, currentcolor)
+                )
+              )
+            )
+          )
+        )
+      )
+    );
+    text-decoration-color: var(
+      --design-link-hover-text-decoration-color-rgb,
+      var(
+        --design-link-hover-text-decoration-color,
+        var(
+          --design-link-current-text-decoration-color-rgb,
+          var(
+            --design-link-current-text-decoration-color,
+            var(
+              --design-link-text-decoration-color-rgb,
+              var(
+                --design-link-text-decoration-color,
+                var(
+                  --design-text-decoration-color-rgb,
+                  var(--design-text-decoration-color, currentcolor)
+                )
+              )
+            )
+          )
+        )
+      )
+    );
+  }
+  a.rich-text[aria-current]:hover,
+  span.rich-text[aria-current]:hover {
+    color: var(
+      --design-link-hover-text-color-rgb,
+      var(
+        --design-link-hover-text-color,
+        var(
+          --design-link-current-text-color-rgb,
+          var(
+            --design-link-current-text-color,
+            var(
+              --design-link-text-color-rgb,
+              var(
+                --design-link-text-color,
+                var(
+                  --design-code-text-color-rgb,
+                  var(
+                    --design-code-text-color,
+                    var(--design-text-color-rgb, var(--design-text-color, #000))
+                  )
+                )
+              )
+            )
+          )
+        )
+      )
+    );
+    background-color: var(
+      --design-link-hover-text-background-color-rgb,
+      var(
+        --design-link-hover-text-background-color,
+        var(
+          --design-link-current-text-background-color-rgb,
+          var(
+            --design-link-current-text-background-color,
+            var(
+              --design-link-text-background-color-rgb,
+              var(--design-link-text-background-color, initial)
+            )
+          )
+        )
+      )
+    );
+  }
+}
+@supports not (overflow: clip) {
+  :root {
+    --overflow-clip-fallback: hidden;
+  }
+}
+@supports (background: -webkit-named-image(i)) and (not (contain-intrinsic-size: inherit)) {
+  div.rich-text,
+  h1.rich-text,
+  h2.rich-text,
+  h5.rich-text,
+  li.rich-text,
+  p.rich-text,
+  ul.rich-text {
+    display: var(--text-truncation-display-inline-for-safari-16, revert);
+  }
+
+  div.rich-text:after,
+  h1.rich-text:after,
+  h2.rich-text:after,
+  h5.rich-text:after,
+  li.rich-text:after,
+  p.rich-text:after,
+  ul.rich-text:after {
+    content: var(--text-truncation-line-break-for-safari-16);
+    white-space: pre;
+  }
+  p.rich-text[data-text-fill] {
+    display: var(--text-truncation-display-inline-for-safari-16, inline-block);
+  }
+}
+@supports (corner-shape: superellipse(2)) {
+  :root {
+    --one-if-corner-shape-supported: 1;
+  }
+}
+[data-layout-template='true'] > #overlay {
+  margin-bottom: 0;
+}
+@media (max-width: 1199px) and (min-width: 810px) {
+  .type-heading .text-display:not(.rich-text-wrapper) {
+    --design-font-family: 'Switzer', sans-serif;
+    --design-font-family-bold: 'Switzer', sans-serif;
+    --design-font-family-bold-italic: 'Switzer', sans-serif;
+    --design-font-family-italic: 'Switzer', sans-serif;
+    --design-font-open-type-features: normal;
+    --design-font-size: 46px;
+    --design-font-style: normal;
+    --design-font-style-bold: normal;
+    --design-font-style-bold-italic: italic;
+    --design-font-style-italic: italic;
+    --design-font-variation-axes: normal;
+    --design-font-weight: 500;
+    --design-font-weight-bold: 700;
+    --design-font-weight-bold-italic: 700;
+    --design-font-weight-italic: 500;
+    --design-letter-spacing: 0em;
+    --design-line-height: 110%;
+    --design-paragraph-spacing: 0px;
+    --design-text-alignment: start;
+    --design-text-color: var(--color-heading, #e5e5e5);
+    --design-text-decoration: none;
+    --design-text-stroke-color: initial;
+    --design-text-stroke-width: initial;
+    --design-text-transform: none;
+  }
+}
+@media (max-width: 809px) and (min-width: 0) {
+  .type-heading .text-display:not(.rich-text-wrapper) {
+    --design-font-family: 'Switzer', sans-serif;
+    --design-font-family-bold: 'Switzer', sans-serif;
+    --design-font-family-bold-italic: 'Switzer', sans-serif;
+    --design-font-family-italic: 'Switzer', sans-serif;
+    --design-font-open-type-features: normal;
+    --design-font-size: 37px;
+    --design-font-style: normal;
+    --design-font-style-bold: normal;
+    --design-font-style-bold-italic: italic;
+    --design-font-style-italic: italic;
+    --design-font-variation-axes: normal;
+    --design-font-weight: 500;
+    --design-font-weight-bold: 700;
+    --design-font-weight-bold-italic: 700;
+    --design-font-weight-italic: 500;
+    --design-letter-spacing: 0em;
+    --design-line-height: 110%;
+    --design-paragraph-spacing: 0px;
+    --design-text-alignment: start;
+    --design-text-color: var(--color-heading, #e5e5e5);
+    --design-text-decoration: none;
+    --design-text-stroke-color: initial;
+    --design-text-stroke-width: initial;
+    --design-text-transform: none;
+  }
+}
+.responsive-slot {
+  display: contents;
+}
+body {
+  --design-will-change-override: none;
+  --design-will-change-filter-override: none;
+}
+[data-content] {
+  position: absolute;
+}
+[data-content='text'] {
+  cursor: inherit;
+}
+[data-content='text'] > * {
+  text-align: var(--design-text-alignment, start);
+}
+[data-content='text'] h1 span,
+[data-content='text'] h2 span,
+[data-content='text'] h5 span,
+[data-content='text'] p span,
+[data-content='text'] span span {
+  display: block;
+}
+[data-content='text'] h1 span span,
+[data-content='text'] h2 span span,
+[data-content='text'] h5 span span,
+[data-content='text'] p span span,
+[data-content='text'] span span span {
+  display: unset;
+}
+[data-content='text'] a,
+[data-content='text'] a div span,
+[data-content='text'] a h1 span span,
+[data-content='text'] a h2 span span,
+[data-content='text'] a h5 span span,
+[data-content='text'] a p span span,
+[data-content='text'] a span span span {
+  --font-family: var(--design-link-font-family, var(--design-font-family));
+  --font-style: var(--design-link-font-style, var(--design-font-style));
+  --font-weight: var(--design-link-font-weight, var(--design-font-weight));
+  --text-color: var(--design-link-text-color, var(--design-text-color));
+  --font-size: var(--design-link-font-size, var(--design-font-size));
+  --text-transform: var(--design-link-text-transform, var(--design-text-transform));
+  --text-decoration: var(
+      --design-link-text-decoration-style,
+      var(--design-text-decoration-style, solid)
+    )
+    var(--design-link-text-decoration, var(--design-text-decoration, none))
+    var(--design-link-text-decoration-color, var(--design-text-decoration-color, currentcolor))
+    var(--design-link-text-decoration-thickness, var(--design-text-decoration-thickness, auto));
+  --text-decoration-skip-ink: var(
+    --design-link-text-decoration-skip-ink,
+    var(--design-text-decoration-skip-ink)
+  );
+  --text-underline-offset: var(
+    --design-link-text-decoration-offset,
+    var(--design-text-decoration-offset)
+  );
+}
+[data-content='text'] a div span:hover,
+[data-content='text'] a h1 span span:hover,
+[data-content='text'] a h2 span span:hover,
+[data-content='text'] a h5 span span:hover,
+[data-content='text'] a p span span:hover,
+[data-content='text'] a span span span:hover,
+[data-content='text'] a:hover {
+  --font-family: var(
+    --design-link-hover-font-family,
+    var(--design-link-font-family, var(--design-font-family))
+  );
+  --font-style: var(
+    --design-link-hover-font-style,
+    var(--design-link-font-style, var(--design-font-style))
+  );
+  --font-weight: var(
+    --design-link-hover-font-weight,
+    var(--design-link-font-weight, var(--design-font-weight))
+  );
+  --text-color: var(
+    --design-link-hover-text-color,
+    var(--design-link-text-color, var(--design-text-color))
+  );
+  --font-size: var(
+    --design-link-hover-font-size,
+    var(--design-link-font-size, var(--design-font-size))
+  );
+  --text-transform: var(
+    --design-link-hover-text-transform,
+    var(--design-link-text-transform, var(--design-text-transform))
+  );
+  --text-decoration: var(
+      --design-link-hover-text-decoration-style,
+      var(--design-link-text-decoration-style, var(--design-text-decoration-style, solid))
+    )
+    var(
+      --design-link-hover-text-decoration,
+      var(--design-link-text-decoration, var(--design-text-decoration, none))
+    )
+    var(
+      --design-link-hover-text-decoration-color,
+      var(--design-link-text-decoration-color, var(--design-text-decoration-color, currentcolor))
+    )
+    var(
+      --design-link-hover-text-decoration-thickness,
+      var(--design-link-text-decoration-thickness, var(--design-text-decoration-thickness, auto))
+    );
+  --text-decoration-skip-ink: var(
+    --design-link-hover-text-decoration-skip-ink,
+    var(--design-link-text-decoration-skip-ink, var(--design-text-decoration-skip-ink))
+  );
+  --text-underline-offset: var(
+    --design-link-hover-text-decoration-offset,
+    var(--design-link-text-decoration-offset, var(--design-text-decoration-offset))
+  );
+}
+[data-content='rich-text'] {
+  outline: none;
+  flex-direction: column;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  display: flex;
+}
+div.rich-text,
+h1.rich-text,
+h2.rich-text,
+h5.rich-text,
+p.rich-text,
+ul.rich-text {
+  margin: 0;
+  padding: 0;
+}
+div.rich-text,
+h1.rich-text,
+h2.rich-text,
+h5.rich-text,
+li.rich-text,
+p.rich-text,
+span.rich-text:not([data-text-fill]),
+ul.rich-text {
+  font-family: var(
+    --design-font-family-preview,
+    var(
+      --design-blockquote-font-family,
+      var(--design-font-family, Inter, Inter Placeholder, sans-serif)
+    )
+  );
+  font-style: var(
+    --design-font-style-preview,
+    var(--design-blockquote-font-style, var(--design-font-style, normal))
+  );
+  font-weight: var(
+    --design-font-weight-preview,
+    var(--design-blockquote-font-weight, var(--design-font-weight, 400))
+  );
+  color: var(--design-blockquote-text-color, var(--design-text-color, #000));
+  font-size: calc(
+    var(--design-blockquote-font-size, var(--design-font-size, 16px)) *
+      var(--design-font-size-scale, 1)
+  );
+  letter-spacing: var(--design-blockquote-letter-spacing, var(--design-letter-spacing, 0));
+  text-transform: var(--design-blockquote-text-transform, var(--design-text-transform, none));
+  -webkit-text-decoration-line: var(
+    --design-blockquote-text-decoration,
+    var(--design-text-decoration, initial)
+  );
+  text-decoration-line: var(
+    --design-blockquote-text-decoration,
+    var(--design-text-decoration, initial)
+  );
+  -webkit-text-decoration-style: var(
+    --design-blockquote-text-decoration-style,
+    var(--design-text-decoration-style, initial)
+  );
+  text-decoration-style: var(
+    --design-blockquote-text-decoration-style,
+    var(--design-text-decoration-style, initial)
+  );
+  -webkit-text-decoration-color: var(
+    --design-blockquote-text-decoration-color,
+    var(--design-text-decoration-color, initial)
+  );
+  text-decoration-color: var(
+    --design-blockquote-text-decoration-color,
+    var(--design-text-decoration-color, initial)
+  );
+  text-decoration-thickness: var(
+    --design-blockquote-text-decoration-thickness,
+    var(--design-text-decoration-thickness, initial)
+  );
+  text-decoration-skip-ink: var(
+    --design-blockquote-text-decoration-skip-ink,
+    var(--design-text-decoration-skip-ink, initial)
+  );
+  text-underline-offset: var(
+    --design-blockquote-text-decoration-offset,
+    var(--design-text-decoration-offset, initial)
+  );
+  line-height: var(--design-blockquote-line-height, var(--design-line-height, 1.2em));
+  text-align: var(--design-blockquote-text-alignment, var(--design-text-alignment, start));
+  -webkit-text-stroke-width: var(--design-text-stroke-width, initial);
+  -webkit-text-stroke-color: var(--design-text-stroke-color, initial);
+  -moz-font-feature-settings: var(--design-font-open-type-features, initial);
+  -webkit-font-feature-settings: var(--design-font-open-type-features, initial);
+  font-feature-settings: var(--design-font-open-type-features, initial);
+  font-variation-settings: var(
+    --design-font-variation-axes-preview,
+    var(--design-font-variation-axes, normal)
+  );
+  text-wrap: var(--design-text-wrap-override, var(--design-text-wrap));
+}
+div.rich-text,
+h1.rich-text,
+h2.rich-text,
+h5.rich-text,
+li.rich-text,
+p.rich-text,
+ul.rich-text {
+  background-color: var(
+    --design-blockquote-text-background-color,
+    var(--design-text-background-color, initial)
+  );
+  border-radius: var(
+    --design-blockquote-text-background-radius,
+    var(--design-text-background-radius, initial)
+  );
+  corner-shape: var(
+    --design-blockquote-text-background-corner-shape,
+    var(--design-text-background-corner-shape, initial)
+  );
+  padding: var(
+    --design-blockquote-text-background-padding,
+    var(--design-text-background-padding, initial)
+  );
+}
+strong.rich-text {
+  font-family: var(--design-blockquote-font-family-bold, var(--design-font-family-bold));
+  font-style: var(--design-blockquote-font-style-bold, var(--design-font-style-bold));
+  font-weight: var(--design-blockquote-font-weight-bold, var(--design-font-weight-bold, bolder));
+  font-variation-settings: var(
+    --design-blockquote-font-variation-axes-bold,
+    var(--design-font-variation-axes-bold)
+  );
+}
+
+div.rich-text:not(:first-child),
+h1.rich-text:not(:first-child),
+h2.rich-text:not(:first-child),
+h5.rich-text:not(:first-child),
+p.rich-text:not(:first-child),
+ul.rich-text:not(:first-child) {
+  margin-top: var(--design-blockquote-paragraph-spacing, var(--design-paragraph-spacing, 0));
+}
+.rich-text[data-text-fill] {
+  -webkit-text-fill-color: transparent;
+  padding: max(
+    0em,
+    calc(calc(1.3em - var(--design-blockquote-line-height, var(--design-line-height, 1.3em))) / 2)
+  );
+  margin: min(
+    0em,
+    calc(calc(1.3em - var(--design-blockquote-line-height, var(--design-line-height, 1.3em))) / -2)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  display: inline-block;
+}
+a.rich-text,
+a.rich-text span.rich-text:not([data-text-fill]),
+span.rich-text[data-nested-link],
+span.rich-text[data-nested-link] span.rich-text:not([data-text-fill]) {
+  color: inherit;
+  font-family: var(
+    --design-font-family-preview,
+    var(
+      --design-link-font-family,
+      var(
+        --design-blockquote-font-family,
+        var(--design-font-family, Inter, Inter Placeholder, sans-serif)
+      )
+    )
+  );
+  font-style: var(
+    --design-font-style-preview,
+    var(
+      --design-link-font-style,
+      var(--design-blockquote-font-style, var(--design-font-style, normal))
+    )
+  );
+  font-weight: var(
+    --design-font-weight-preview,
+    var(
+      --design-link-font-weight,
+      var(--design-blockquote-font-weight, var(--design-font-weight, 400))
+    )
+  );
+  font-size: calc(
+    var(--design-blockquote-font-size, var(--design-font-size, 16px)) *
+      var(--design-font-size-scale, 1)
+  );
+  text-transform: var(
+    --design-link-text-transform,
+    var(--design-blockquote-text-transform, var(--design-text-transform, none))
+  );
+  cursor: var(--design-custom-cursors, pointer);
+  background-color: initial;
+  border-radius: var(--design-link-text-background-radius, initial);
+  corner-shape: var(--design-link-text-background-corner-shape, initial);
+  padding: var(--design-link-text-background-padding, initial);
+}
+a.rich-text,
+span.rich-text[data-nested-link] {
+  color: var(
+    --design-link-text-color,
+    var(--design-blockquote-text-color, var(--design-text-color, #000))
+  );
+  -webkit-text-decoration-line: var(
+    --design-link-text-decoration,
+    var(--design-blockquote-text-decoration, var(--design-text-decoration, initial))
+  );
+  text-decoration-line: var(
+    --design-link-text-decoration,
+    var(--design-blockquote-text-decoration, var(--design-text-decoration, initial))
+  );
+  -webkit-text-decoration-style: var(
+    --design-link-text-decoration-style,
+    var(--design-blockquote-text-decoration-style, var(--design-text-decoration-style, initial))
+  );
+  text-decoration-style: var(
+    --design-link-text-decoration-style,
+    var(--design-blockquote-text-decoration-style, var(--design-text-decoration-style, initial))
+  );
+  -webkit-text-decoration-color: var(
+    --design-link-text-decoration-color,
+    var(--design-blockquote-text-decoration-color, var(--design-text-decoration-color, initial))
+  );
+  text-decoration-color: var(
+    --design-link-text-decoration-color,
+    var(--design-blockquote-text-decoration-color, var(--design-text-decoration-color, initial))
+  );
+  text-decoration-thickness: var(
+    --design-link-text-decoration-thickness,
+    var(
+      --design-blockquote-text-decoration-thickness,
+      var(--design-text-decoration-thickness, initial)
+    )
+  );
+  text-decoration-skip-ink: var(
+    --design-link-text-decoration-skip-ink,
+    var(
+      --design-blockquote-text-decoration-skip-ink,
+      var(--design-text-decoration-skip-ink, initial)
+    )
+  );
+  text-underline-offset: var(
+    --design-link-text-decoration-offset,
+    var(--design-blockquote-text-decoration-offset, var(--design-text-decoration-offset, initial))
+  );
+  background-color: var(--design-link-text-background-color, initial);
+}
+a.rich-text:hover,
+a.rich-text:hover span.rich-text:not([data-text-fill]),
+span.rich-text[data-nested-link]:hover,
+span.rich-text[data-nested-link]:hover span.rich-text:not([data-text-fill]) {
+  font-family: var(
+    --design-font-family-preview,
+    var(
+      --design-link-hover-font-family,
+      var(
+        --design-link-font-family,
+        var(
+          --design-blockquote-font-family,
+          var(--design-font-family, Inter, Inter Placeholder, sans-serif)
+        )
+      )
+    )
+  );
+  font-style: var(
+    --design-font-style-preview,
+    var(
+      --design-link-hover-font-style,
+      var(
+        --design-link-font-style,
+        var(--design-blockquote-font-style, var(--design-font-style, normal))
+      )
+    )
+  );
+  font-weight: var(
+    --design-font-weight-preview,
+    var(
+      --design-link-hover-font-weight,
+      var(
+        --design-link-font-weight,
+        var(--design-blockquote-font-weight, var(--design-font-weight, 400))
+      )
+    )
+  );
+  font-size: calc(
+    var(
+        --design-link-hover-font-size,
+        var(--design-blockquote-font-size, var(--design-font-size, 16px))
+      ) *
+      var(--design-font-size-scale, 1)
+  );
+  text-transform: var(
+    --design-link-hover-text-transform,
+    var(
+      --design-link-text-transform,
+      var(--design-blockquote-text-transform, var(--design-text-transform, none))
+    )
+  );
+  border-radius: var(
+    --design-link-hover-text-background-radius,
+    var(--design-link-text-background-radius, var(--design-text-background-radius, initial))
+  );
+  corner-shape: var(
+    --design-link-hover-text-background-corner-shape,
+    var(
+      --design-link-text-background-corner-shape,
+      var(--design-text-background-corner-shape, initial)
+    )
+  );
+  padding: var(
+    --design-link-hover-text-background-padding,
+    var(--design-link-text-background-padding, var(--design-text-background-padding, initial))
+  );
+}
+a.rich-text:hover,
+span.rich-text[data-nested-link]:hover {
+  color: var(
+    --design-link-hover-text-color,
+    var(
+      --design-link-text-color,
+      var(--design-blockquote-text-color, var(--design-text-color, #000))
+    )
+  );
+  -webkit-text-decoration-line: var(
+    --design-link-hover-text-decoration,
+    var(
+      --design-link-text-decoration,
+      var(--design-blockquote-text-decoration, var(--design-text-decoration, initial))
+    )
+  );
+  text-decoration-line: var(
+    --design-link-hover-text-decoration,
+    var(
+      --design-link-text-decoration,
+      var(--design-blockquote-text-decoration, var(--design-text-decoration, initial))
+    )
+  );
+  -webkit-text-decoration-style: var(
+    --design-link-hover-text-decoration-style,
+    var(
+      --design-link-text-decoration-style,
+      var(--design-blockquote-text-decoration-style, var(--design-text-decoration-style, initial))
+    )
+  );
+  text-decoration-style: var(
+    --design-link-hover-text-decoration-style,
+    var(
+      --design-link-text-decoration-style,
+      var(--design-blockquote-text-decoration-style, var(--design-text-decoration-style, initial))
+    )
+  );
+  -webkit-text-decoration-color: var(
+    --design-link-hover-text-decoration-color,
+    var(
+      --design-link-text-decoration-color,
+      var(--design-blockquote-text-decoration-color, var(--design-text-decoration-color, initial))
+    )
+  );
+  text-decoration-color: var(
+    --design-link-hover-text-decoration-color,
+    var(
+      --design-link-text-decoration-color,
+      var(--design-blockquote-text-decoration-color, var(--design-text-decoration-color, initial))
+    )
+  );
+  text-decoration-thickness: var(
+    --design-link-hover-text-decoration-thickness,
+    var(
+      --design-link-text-decoration-thickness,
+      var(
+        --design-blockquote-text-decoration-thickness,
+        var(--design-text-decoration-thickness, initial)
+      )
+    )
+  );
+  text-decoration-skip-ink: var(
+    --design-link-hover-text-decoration-skip-ink,
+    var(
+      --design-link-text-decoration-skip-ink,
+      var(
+        --design-blockquote-text-decoration-skip-ink,
+        var(--design-text-decoration-skip-ink, initial)
+      )
+    )
+  );
+  text-underline-offset: var(
+    --design-link-hover-text-decoration-offset,
+    var(
+      --design-link-text-decoration-offset,
+      var(--design-blockquote-text-decoration-offset, var(--design-text-decoration-offset, initial))
+    )
+  );
+  background-color: var(
+    --design-link-hover-text-background-color,
+    var(--design-link-text-background-color, var(--design-text-background-color, initial))
+  );
+}
+a.rich-text[aria-current],
+a.rich-text[aria-current] span.rich-text:not([data-text-fill]),
+span.rich-text[aria-current],
+span.rich-text[aria-current] span.rich-text:not([data-text-fill]) {
+  font-family: var(
+    --design-font-family-preview,
+    var(
+      --design-link-current-font-family,
+      var(
+        --design-link-font-family,
+        var(--design-font-family, Inter, Inter Placeholder, sans-serif)
+      )
+    )
+  );
+  font-style: var(
+    --design-font-style-preview,
+    var(
+      --design-link-current-font-style,
+      var(--design-link-font-style, var(--design-font-style, normal))
+    )
+  );
+  font-weight: var(
+    --design-font-weight-preview,
+    var(
+      --design-link-current-font-weight,
+      var(--design-link-font-weight, var(--design-font-weight, 400))
+    )
+  );
+  font-size: calc(
+    var(
+        --design-link-current-font-size,
+        var(--design-link-font-size, var(--design-font-size, 16px))
+      ) *
+      var(--design-font-size-scale, 1)
+  );
+  text-transform: var(
+    --design-link-current-text-transform,
+    var(--design-link-text-transform, var(--design-text-transform, none))
+  );
+  border-radius: var(
+    --design-link-current-text-background-radius,
+    var(--design-link-text-background-radius, initial)
+  );
+  corner-shape: var(
+    --design-link-current-text-background-corner-shape,
+    var(--design-link-text-background-corner-shape, initial)
+  );
+  padding: var(
+    --design-link-current-text-background-padding,
+    var(--design-link-text-background-padding, initial)
+  );
+}
+a.rich-text[aria-current],
+span.rich-text[aria-current] {
+  color: var(
+    --design-link-current-text-color,
+    var(--design-link-text-color, var(--design-text-color, #000))
+  );
+  -webkit-text-decoration-line: var(
+    --design-link-current-text-decoration,
+    var(--design-link-text-decoration, var(--design-text-decoration, initial))
+  );
+  text-decoration-line: var(
+    --design-link-current-text-decoration,
+    var(--design-link-text-decoration, var(--design-text-decoration, initial))
+  );
+  -webkit-text-decoration-style: var(
+    --design-link-current-text-decoration-style,
+    var(--design-link-text-decoration-style, var(--design-text-decoration-style, initial))
+  );
+  text-decoration-style: var(
+    --design-link-current-text-decoration-style,
+    var(--design-link-text-decoration-style, var(--design-text-decoration-style, initial))
+  );
+  -webkit-text-decoration-color: var(
+    --design-link-current-text-decoration-color,
+    var(--design-link-text-decoration-color, var(--design-text-decoration-color, initial))
+  );
+  text-decoration-color: var(
+    --design-link-current-text-decoration-color,
+    var(--design-link-text-decoration-color, var(--design-text-decoration-color, initial))
+  );
+  text-decoration-thickness: var(
+    --design-link-current-text-decoration-thickness,
+    var(--design-link-text-decoration-thickness, var(--design-text-decoration-thickness, initial))
+  );
+  text-decoration-skip-ink: var(
+    --design-link-current-text-decoration-skip-ink,
+    var(--design-link-text-decoration-skip-ink, var(--design-text-decoration-skip-ink, initial))
+  );
+  text-underline-offset: var(
+    --design-link-current-text-decoration-offset,
+    var(--design-link-text-decoration-offset, var(--design-text-decoration-offset, initial))
+  );
+  background-color: var(
+    --design-link-current-text-background-color,
+    var(--design-link-text-background-color, var(--design-text-background-color, initial))
+  );
+}
+a.rich-text[aria-current]:hover,
+a.rich-text[aria-current]:hover span.rich-text:not([data-text-fill]),
+span.rich-text[aria-current]:hover,
+span.rich-text[aria-current]:hover span.rich-text:not([data-text-fill]) {
+  color: inherit;
+  font-family: var(
+    --design-font-family-preview,
+    var(
+      --design-link-hover-font-family,
+      var(
+        --design-link-current-font-family,
+        var(
+          --design-link-font-family,
+          var(--design-font-family, Inter, Inter Placeholder, sans-serif)
+        )
+      )
+    )
+  );
+  font-style: var(
+    --design-font-style-preview,
+    var(
+      --design-link-hover-font-style,
+      var(
+        --design-link-current-font-style,
+        var(--design-link-font-style, var(--design-font-style, normal))
+      )
+    )
+  );
+  font-weight: var(
+    --design-font-weight-preview,
+    var(
+      --design-link-hover-font-weight,
+      var(
+        --design-link-current-font-weight,
+        var(--design-link-font-weight, var(--design-font-weight, 400))
+      )
+    )
+  );
+  font-size: calc(
+    var(
+        --design-link-hover-font-size,
+        var(
+          --design-link-current-font-size,
+          var(--design-link-font-size, var(--design-font-size, 16px))
+        )
+      ) *
+      var(--design-font-size-scale, 1)
+  );
+  text-transform: var(
+    --design-link-hover-text-transform,
+    var(
+      --design-link-current-text-transform,
+      var(--design-link-text-transform, var(--design-text-transform, none))
+    )
+  );
+  border-radius: var(
+    --design-link-hover-text-background-radius,
+    var(
+      --design-link-current-text-background-radius,
+      var(--design-link-text-background-radius, initial)
+    )
+  );
+  corner-shape: var(
+    --design-link-hover-text-background-corner-shape,
+    var(
+      --design-link-current-text-background-corner-shape,
+      var(--design-link-text-background-corner-shape, initial)
+    )
+  );
+  padding: var(
+    --design-link-hover-text-background-padding,
+    var(
+      --design-link-current-text-background-padding,
+      var(--design-link-text-background-padding, initial)
+    )
+  );
+}
+a.rich-text[aria-current]:hover,
+span.rich-text[aria-current]:hover {
+  color: var(
+    --design-link-hover-text-color,
+    var(
+      --design-link-current-text-color,
+      var(--design-link-text-color, var(--design-text-color, #000))
+    )
+  );
+  -webkit-text-decoration-line: var(
+    --design-link-hover-text-decoration,
+    var(
+      --design-link-current-text-decoration,
+      var(--design-link-text-decoration, var(--design-text-decoration, initial))
+    )
+  );
+  text-decoration-line: var(
+    --design-link-hover-text-decoration,
+    var(
+      --design-link-current-text-decoration,
+      var(--design-link-text-decoration, var(--design-text-decoration, initial))
+    )
+  );
+  -webkit-text-decoration-style: var(
+    --design-link-hover-text-decoration-style,
+    var(
+      --design-link-current-text-decoration-style,
+      var(--design-link-text-decoration-style, var(--design-text-decoration-style, initial))
+    )
+  );
+  text-decoration-style: var(
+    --design-link-hover-text-decoration-style,
+    var(
+      --design-link-current-text-decoration-style,
+      var(--design-link-text-decoration-style, var(--design-text-decoration-style, initial))
+    )
+  );
+  -webkit-text-decoration-color: var(
+    --design-link-hover-text-decoration-color,
+    var(
+      --design-link-current-text-decoration-color,
+      var(--design-link-text-decoration-color, var(--design-text-decoration-color, initial))
+    )
+  );
+  text-decoration-color: var(
+    --design-link-hover-text-decoration-color,
+    var(
+      --design-link-current-text-decoration-color,
+      var(--design-link-text-decoration-color, var(--design-text-decoration-color, initial))
+    )
+  );
+  text-decoration-thickness: var(
+    --design-link-hover-text-decoration-thickness,
+    var(
+      --design-link-current-text-decoration-thickness,
+      var(--design-link-text-decoration-thickness, var(--design-text-decoration-thickness, initial))
+    )
+  );
+  text-decoration-skip-ink: var(
+    --design-link-hover-text-decoration-skip-ink,
+    var(
+      --design-link-current-text-decoration-skip-ink,
+      var(--design-link-text-decoration-skip-ink, var(--design-text-decoration-skip-ink, initial))
+    )
+  );
+  text-underline-offset: var(
+    --design-link-hover-text-decoration-offset,
+    var(
+      --design-link-current-text-decoration-offset,
+      var(--design-link-text-decoration-offset, var(--design-text-decoration-offset, initial))
+    )
+  );
+  background-color: var(
+    --design-link-hover-text-background-color,
+    var(
+      --design-link-current-text-background-color,
+      var(--design-link-text-background-color, initial)
+    )
+  );
+}
+
+/* Formatting whitespace around list items must not create visible text lines. */
+ul.rich-text,
+ol.rich-text,
+li.rich-text {
+  white-space: normal;
+}
+ul.rich-text {
+  padding-inline-start: 0;
+  position: relative;
+}
+li.rich-text {
+  counter-increment: list-item;
+  padding-inline-start: 2ch;
+  list-style: '';
+}
+ul.rich-text > li.rich-text:before {
+  content: '•';
+  position: absolute;
+  inset-inline-start: 0;
+}
+[data-content='DeprecatedRichText'] {
+  cursor: inherit;
+}
+[data-content='DeprecatedRichText'] div,
+[data-content='DeprecatedRichText'] h1,
+[data-content='DeprecatedRichText'] h2,
+[data-content='DeprecatedRichText'] h5,
+[data-content='DeprecatedRichText'] p {
+  margin: 0;
+  padding: 0;
+}
+[data-content='DeprecatedRichText'] div,
+[data-content='DeprecatedRichText'] h1,
+[data-content='DeprecatedRichText'] h2,
+[data-content='DeprecatedRichText'] h5,
+[data-content='DeprecatedRichText'] li,
+[data-content='DeprecatedRichText'] p,
+[data-content='DeprecatedRichText'] span:not([data-text-fill]),
+[data-content='DeprecatedRichText'] ul {
+  font-family: var(--design-font-family, Inter, Inter Placeholder, sans-serif);
+  font-style: var(--design-font-style, normal);
+  font-weight: var(--design-font-weight, 400);
+  color: var(--design-text-color, #000);
+  font-size: var(--design-font-size, 16px);
+  letter-spacing: var(--design-letter-spacing, 0);
+  text-transform: var(--design-text-transform, none);
+  -webkit-text-decoration: var(--design-text-decoration, none);
+  text-decoration: var(--design-text-decoration, none);
+  line-height: var(--design-line-height, 1.2em);
+  text-align: var(--design-text-alignment, start);
+}
+[data-content='DeprecatedRichText'] span[data-text-fill] {
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  display: inline-block;
+}
+[data-content='DeprecatedRichText'] a,
+[data-content='DeprecatedRichText'] a span:not([data-text-fill]) {
+  font-family: var(
+    --design-link-font-family,
+    var(--design-font-family, Inter, Inter Placeholder, sans-serif)
+  );
+  font-style: var(--design-link-font-style, var(--design-font-style, normal));
+  font-weight: var(--design-link-font-weight, var(--design-font-weight, 400));
+  color: var(--design-link-text-color, var(--design-text-color, #000));
+  font-size: var(--design-link-font-size, var(--design-font-size, 16px));
+  text-transform: var(--design-link-text-transform, var(--design-text-transform, none));
+  -webkit-text-decoration: var(--design-link-text-decoration, var(--design-text-decoration, none));
+  text-decoration: var(--design-link-text-decoration, var(--design-text-decoration, none));
+}
+[data-content='DeprecatedRichText'] a:hover,
+[data-content='DeprecatedRichText'] a:hover span:not([data-text-fill]) {
+  font-family: var(
+    --design-link-hover-font-family,
+    var(--design-link-font-family, var(--design-font-family, Inter, Inter Placeholder, sans-serif))
+  );
+  font-style: var(
+    --design-link-hover-font-style,
+    var(--design-link-font-style, var(--design-font-style, normal))
+  );
+  font-weight: var(
+    --design-link-hover-font-weight,
+    var(--design-link-font-weight, var(--design-font-weight, 400))
+  );
+  color: var(
+    --design-link-hover-text-color,
+    var(--design-link-text-color, var(--design-text-color, #000))
+  );
+  font-size: var(
+    --design-link-hover-font-size,
+    var(--design-link-font-size, var(--design-font-size, 16px))
+  );
+  text-transform: var(
+    --design-link-hover-text-transform,
+    var(--design-link-text-transform, var(--design-text-transform, none))
+  );
+  -webkit-text-decoration: var(
+    --design-link-hover-text-decoration,
+    var(--design-link-text-decoration, var(--design-text-decoration, none))
+  );
+  text-decoration: var(
+    --design-link-hover-text-decoration,
+    var(--design-link-text-decoration, var(--design-text-decoration, none))
+  );
+}
+[data-content='DeprecatedRichText'] a[aria-current],
+[data-content='DeprecatedRichText']
+  a[aria-current]
+  span:not([data-text-fill]):not([data-nested-link]) {
+  font-family: var(
+    --design-link-current-font-family,
+    var(--design-link-font-family, var(--design-font-family, Inter, Inter Placeholder, sans-serif))
+  );
+  font-style: var(
+    --design-link-current-font-style,
+    var(--design-link-font-style, var(--design-font-style, normal))
+  );
+  font-weight: var(
+    --design-link-current-font-weight,
+    var(--design-link-font-weight, var(--design-font-weight, 400))
+  );
+  color: var(
+    --design-link-current-text-color,
+    var(--design-link-text-color, var(--design-text-color, #000))
+  );
+  font-size: var(
+    --design-link-current-font-size,
+    var(--design-link-font-size, var(--design-font-size, 16px))
+  );
+  text-transform: var(
+    --design-link-current-text-transform,
+    var(--design-link-text-transform, var(--design-text-transform, none))
+  );
+  -webkit-text-decoration: var(
+    --design-link-current-text-decoration,
+    var(--design-link-text-decoration, var(--design-text-decoration, none))
+  );
+  text-decoration: var(
+    --design-link-current-text-decoration,
+    var(--design-link-text-decoration, var(--design-text-decoration, none))
+  );
+}
+[data-content='DeprecatedRichText'] a[aria-current]:hover,
+[data-content='DeprecatedRichText']
+  a[aria-current]:hover
+  span:not([data-text-fill]):not([data-nested-link]) {
+  font-family: var(
+    --design-link-hover-font-family,
+    var(
+      --design-link-current-font-family,
+      var(
+        --design-link-font-family,
+        var(--design-font-family, Inter, Inter Placeholder, sans-serif)
+      )
+    )
+  );
+  font-style: var(
+    --design-link-hover-font-style,
+    var(
+      --design-link-current-font-style,
+      var(--design-link-font-style, var(--design-font-style, normal))
+    )
+  );
+  font-weight: var(
+    --design-link-hover-font-weight,
+    var(
+      --design-link-current-font-weight,
+      var(--design-link-font-weight, var(--design-font-weight, 400))
+    )
+  );
+  color: var(
+    --design-link-hover-text-color,
+    var(
+      --design-link-current-text-color,
+      var(--design-link-text-color, var(--design-text-color, #000))
+    )
+  );
+  font-size: var(
+    --design-link-hover-font-size,
+    var(
+      --design-link-current-font-size,
+      var(--design-link-font-size, var(--design-font-size, 16px))
+    )
+  );
+  text-transform: var(
+    --design-link-hover-text-transform,
+    var(
+      --design-link-current-text-transform,
+      var(--design-link-text-transform, var(--design-text-transform, none))
+    )
+  );
+  -webkit-text-decoration: var(
+    --design-link-hover-text-decoration,
+    var(
+      --design-link-current-text-decoration,
+      var(--design-link-text-decoration, var(--design-text-decoration, none))
+    )
+  );
+  text-decoration: var(
+    --design-link-hover-text-decoration,
+    var(
+      --design-link-current-text-decoration,
+      var(--design-link-text-decoration, var(--design-text-decoration, none))
+    )
+  );
+}
+[data-content='DeprecatedRichText'] strong {
+  font-weight: bolder;
+}
+
+[data-content='DeprecatedRichText'] ul {
+  width: 100%;
+  margin: 0;
+  padding-left: 0;
+  display: table;
+}
+[data-content='DeprecatedRichText'] li {
+  counter-increment: list-item;
+  list-style: none;
+  display: table-row;
+}
+[data-content='DeprecatedRichText'] ul > li:before {
+  box-sizing: border-box;
+  content: '•';
+  width: 2.25ch;
+  padding-right: 0.75ch;
+  display: table-cell;
+}
+
+[data-content='Scroll']::-webkit-scrollbar {
+  display: none;
+}
+[data-content='NativeScroll'] > *,
+[data-content='PageContentWrapper'] > *,
+[data-content='PageContentWrapper'] > [data-content],
+[data-content='ScrollContentWrapper'] > * {
+  position: relative;
+}
+[data-content='NativeScroll'] {
+  -webkit-overflow-scrolling: touch;
+}
+[data-is-present='false'],
+[data-is-present='false'] * {
+  pointer-events: none !important;
+}
+[data-content='Frame'] *,
+[data-content='Stack'] * {
+  pointer-events: auto;
+}
+.icon-content svg {
+  display: block;
+}
+[data-reset='button'] {
+  background: 0 0;
+  border-width: 0;
+  padding: 0;
+}
+[data-hide-scrollbars='true']::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+[data-hide-scrollbars='true']::-webkit-scrollbar-thumb {
+  background: 0 0;
+}
+[data-hide-scrollbars='true'] {
+  scrollbar-width: none;
+}
+
+.type-button .text-button:not(.rich-text-wrapper) {
+  --design-font-size: 16px;
+  --design-text-color: #0d0d0d;
+  --design-text-transform: none;
+}
+
+.type-button .text-button:not(.rich-text-wrapper),
+.type-subtitle .text-eyebrow:not(.rich-text-wrapper) {
+  --design-font-family: 'Inter', sans-serif;
+  --design-font-family-bold: 'Inter', sans-serif;
+  --design-font-family-bold-italic: 'Inter', sans-serif;
+  --design-font-family-italic: 'Inter', sans-serif;
+  --design-font-open-type-features: normal;
+  --design-font-style: normal;
+  --design-font-style-bold: normal;
+  --design-font-style-bold-italic: italic;
+  --design-font-style-italic: italic;
+  --design-font-variation-axes: normal;
+  --design-font-weight: 500;
+  --design-font-weight-bold: 700;
+  --design-font-weight-bold-italic: 700;
+  --design-font-weight-italic: 500;
+  --design-letter-spacing: 0em;
+  --design-line-height: 1.2em;
+  --design-paragraph-spacing: 20px;
+  --design-text-alignment: start;
+  --design-text-decoration: none;
+  --design-text-stroke-color: initial;
+  --design-text-stroke-width: initial;
+}
+
+.type-subtitle .text-eyebrow:not(.rich-text-wrapper) {
+  --design-font-size: 14px;
+  --design-text-color: #262626;
+  --design-text-transform: uppercase;
+}
+
+.type-quote .text-quote:not(.rich-text-wrapper) {
+  --design-font-family: 'Switzer', sans-serif;
+  --design-font-family-bold: 'Switzer', sans-serif;
+  --design-font-family-bold-italic: 'Switzer', sans-serif;
+  --design-font-family-italic: 'Switzer', sans-serif;
+  --design-font-open-type-features: normal;
+  --design-font-size: 32px;
+  --design-font-style: normal;
+  --design-font-style-bold: normal;
+  --design-font-style-bold-italic: italic;
+  --design-font-style-italic: italic;
+  --design-font-variation-axes: normal;
+  --design-font-weight: 500;
+  --design-font-weight-bold: 700;
+  --design-font-weight-bold-italic: 700;
+  --design-font-weight-italic: 500;
+  --design-letter-spacing: 0em;
+  --design-line-height: 1.5em;
+  --design-paragraph-spacing: 20px;
+  --design-text-alignment: start;
+  --design-text-color: var(--color-heading, #fafafa);
+  --design-text-decoration: none;
+  --design-text-stroke-color: initial;
+  --design-text-stroke-width: initial;
+  --design-text-transform: none;
+}
+
+.type-title .text-title:not(.rich-text-wrapper) {
+  --design-line-height: 1.2em;
+}
+
+.type-body .text-body:not(.rich-text-wrapper),
+.type-title .text-title:not(.rich-text-wrapper) {
+  --design-font-family: 'Inter', sans-serif;
+  --design-font-family-bold: 'Inter', sans-serif;
+  --design-font-family-bold-italic: 'Inter', sans-serif;
+  --design-font-family-italic: 'Inter', sans-serif;
+  --design-font-open-type-features: normal;
+  --design-font-size: 16px;
+  --design-font-style: normal;
+  --design-font-style-bold: normal;
+  --design-font-style-bold-italic: italic;
+  --design-font-style-italic: italic;
+  --design-font-variation-axes: normal;
+  --design-font-weight: 500;
+  --design-font-weight-bold: 700;
+  --design-font-weight-bold-italic: 700;
+  --design-font-weight-italic: 500;
+  --design-letter-spacing: 0em;
+  --design-paragraph-spacing: 20px;
+  --design-text-alignment: start;
+  --design-text-color: var(--color-heading, #fafafa);
+  --design-text-decoration: none;
+  --design-text-stroke-color: initial;
+  --design-text-stroke-width: initial;
+  --design-text-transform: none;
+}
+
+.type-body .text-body:not(.rich-text-wrapper) {
+  --design-line-height: 1.5em;
+}
+
+.type-label .text-subheading:not(.rich-text-wrapper) {
+  --design-font-size: 36px;
+  --design-line-height: 1.2em;
+  --design-paragraph-spacing: 40px;
+}
+
+.type-heading .text-display:not(.rich-text-wrapper),
+.type-label .text-subheading:not(.rich-text-wrapper) {
+  --design-font-family: 'Switzer', sans-serif;
+  --design-font-family-bold: 'Switzer', sans-serif;
+  --design-font-family-bold-italic: 'Switzer', sans-serif;
+  --design-font-family-italic: 'Switzer', sans-serif;
+  --design-font-open-type-features: normal;
+  --design-font-style: normal;
+  --design-font-style-bold: normal;
+  --design-font-style-bold-italic: italic;
+  --design-font-style-italic: italic;
+  --design-font-variation-axes: normal;
+  --design-font-weight: 500;
+  --design-font-weight-bold: 700;
+  --design-font-weight-bold-italic: 700;
+  --design-font-weight-italic: 500;
+  --design-letter-spacing: 0em;
+  --design-text-alignment: start;
+  --design-text-color: var(--color-heading, #e5e5e5);
+  --design-text-decoration: none;
+  --design-text-stroke-color: initial;
+  --design-text-stroke-width: initial;
+  --design-text-transform: none;
+}
+
+.type-heading .text-display:not(.rich-text-wrapper) {
+  --design-font-size: 58px;
+  --design-line-height: 110%;
+  --design-paragraph-spacing: 0px;
+}
+
+.type-menu .text-menu:not(.rich-text-wrapper) {
+  --design-font-family: 'Switzer', sans-serif;
+  --design-font-family-bold: 'Switzer', sans-serif;
+  --design-font-family-bold-italic: 'Switzer', sans-serif;
+  --design-font-family-italic: 'Switzer', sans-serif;
+  --design-font-size: 22px;
+  --design-line-height: 1.5em;
+}
+
+.type-caption .text-caption:not(.rich-text-wrapper),
+.type-menu .text-menu:not(.rich-text-wrapper) {
+  --design-font-open-type-features: normal;
+  --design-font-style: normal;
+  --design-font-style-bold: normal;
+  --design-font-style-bold-italic: italic;
+  --design-font-style-italic: italic;
+  --design-font-variation-axes: normal;
+  --design-font-weight: 500;
+  --design-font-weight-bold: 700;
+  --design-font-weight-bold-italic: 700;
+  --design-font-weight-italic: 500;
+  --design-letter-spacing: 0em;
+  --design-paragraph-spacing: 20px;
+  --design-text-alignment: start;
+  --design-text-color: var(--color-heading, #fafafa);
+  --design-text-decoration: none;
+  --design-text-stroke-color: initial;
+  --design-text-stroke-width: initial;
+  --design-text-transform: none;
+}
+
+.type-caption .text-caption:not(.rich-text-wrapper) {
+  --design-font-family: 'Inter', sans-serif;
+  --design-font-family-bold: 'Inter', sans-serif;
+  --design-font-family-bold-italic: 'Inter', sans-serif;
+  --design-font-family-italic: 'Inter', sans-serif;
+  --design-font-size: 14px;
+  --design-line-height: 1.2em;
+}
+
+.not-found-page__content .not-found-page__heading-2:not(.rich-text-wrapper) {
+  --design-font-family: 'Switzer', sans-serif;
+  --design-font-family-bold: 'Switzer', sans-serif;
+  --design-font-family-bold-italic: 'Switzer', sans-serif;
+  --design-font-family-italic: 'Switzer', sans-serif;
+  --design-font-open-type-features: normal;
+  --design-font-size: 145px;
+  --design-font-style: normal;
+  --design-font-style-bold: normal;
+  --design-font-style-bold-italic: italic;
+  --design-font-style-italic: italic;
+  --design-font-variation-axes: normal;
+  --design-font-weight: 500;
+  --design-font-weight-bold: 700;
+  --design-font-weight-bold-italic: 700;
+  --design-font-weight-italic: 500;
+  --design-letter-spacing: 0em;
+  --design-line-height: 110%;
+  --design-paragraph-spacing: 0px;
+  --design-text-alignment: start;
+  --design-text-color: var(--color-heading, #e5e5e5);
+  --design-text-decoration: none;
+  --design-text-stroke-color: initial;
+  --design-text-stroke-width: initial;
+  --design-text-transform: none;
+}
+.contact-page__decoration-2 {
+  box-shadow: var(--design-input-box-shadow);
+  border-top-left-radius: var(--design-input-border-radius-top-left);
+  border-top-right-radius: var(--design-input-border-radius-top-right);
+  border-bottom-right-radius: var(--design-input-border-radius-bottom-right);
+  border-bottom-left-radius: var(--design-input-border-radius-bottom-left);
+  corner-shape: var(--design-input-corner-shape);
+  background: var(--design-input-background);
+  transition: var(--design-input-focused-transition);
+  transition-property: background, box-shadow;
+}
+.contact-page__decoration .form-control::placeholder {
+  color: var(--design-input-placeholder-color);
+}
+.contact-page__decoration {
+  padding: var(--design-input-padding);
+  align-items: center;
+  display: flex;
+}
+.contact-page__decoration .form-control {
+  flex: 1;
+  width: auto;
+  min-width: 0;
+  padding: 0;
+}
+.contact-page__decoration.contact-page__decoration-7 {
+  padding: 0;
+}
+.contact-page__decoration.contact-page__decoration-7 textarea.form-control {
+  width: 100%;
+  padding: var(--design-input-padding);
+}
+.contact-page__decoration .form-control[type='date'],
+.contact-page__decoration .form-control[type='time'] {
+  appearance: none;
+}
+.contact-page__decoration .form-control::-webkit-date-and-time-value {
+  text-align: start;
+}
+.contact-page__decoration textarea {
+  resize: var(--design-textarea-resize);
+  min-height: inherit;
+  max-height: inherit;
+  white-space: break-spaces;
+  display: flex;
+  overflow-y: auto;
+}
+.contact-page__decoration textarea::-webkit-resizer {
+  background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2214%22 height=%2214%22><path d=%22m1.5 8 7-7M9 5.5l-3 3%22 stroke=%22%23999%22 stroke-width=%221.5%22 stroke-linecap=%22round%22></path></svg>')
+    no-repeat;
+}
+.contact-page__decoration textarea::-webkit-scrollbar {
+  cursor: pointer;
+  background: 0 0;
+}
+.contact-page__decoration textarea::-webkit-scrollbar-thumb:window-inactive {
+  opacity: 0;
+}
+.contact-page__decoration textarea::-webkit-scrollbar-corner {
+  background: 0 0;
+  outline: none;
+}
+.contact-page__decoration .form-control::-webkit-datetime-edit {
+  height: var(--design-input-font-line-height);
+}
+.contact-page__decoration .form-control.is-empty::-webkit-datetime-edit {
+  color: var(--design-input-placeholder-color);
+  -webkit-text-fill-color: var(--design-input-placeholder-color);
+  overflow: visible;
+}
+.contact-page__decoration.contact-page__decoration-4:before {
+  content: var(--design-input-icon-content, none);
+  height: 16px;
+  -webkit-mask-position: 50%;
+  mask-position: 50%;
+  -webkit-mask-image: var(--design-input-icon-mask-image);
+  mask-image: var(--design-input-icon-mask-image);
+  background-position: 50%;
+  background-image: var(--design-input-icon-image);
+  flex-shrink: 0;
+  margin-right: 8px;
+}
+.contact-page__decoration .form-control[type='date']:before,
+.contact-page__decoration .form-control[type='time']:before,
+.contact-page__decoration.contact-page__decoration-4:before {
+  background-repeat: no-repeat;
+  background-size: 16px;
+  background-color: var(--design-input-icon-color);
+  width: 16px;
+  -webkit-mask-size: 16px;
+  mask-size: 16px;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  display: block;
+}
+.contact-page__decoration .form-control[type='date']:before,
+.contact-page__decoration .form-control[type='time']:before {
+  content: '';
+  box-sizing: content-box;
+  padding: var(--design-input-padding);
+  pointer-events: none;
+  background-position: 10px;
+  border: none;
+  padding-left: 10px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  -webkit-mask-position: 10px;
+  mask-position: 10px;
+}
+.contact-page__decoration .form-control[type='date']:before {
+  -webkit-mask-image: var(
+    --design-input-icon-mask-image,
+    url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22><path fill=%22rgb(153, 153, 153)%22 d=%22M3 5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2H3Z%22 opacity=%22.3%22/><path fill=%22transparent%22 stroke=%22rgb(153, 153, 153)%22 stroke-width=%221.5%22 d=%22M3.25 5.25a2 2 0 0 1 2-2h5.5a2 2 0 0 1 2 2v5.5a2 2 0 0 1-2 2h-5.5a2 2 0 0 1-2-2ZM3 6.75h9.5%22/></svg>')
+  );
+  mask-image: var(
+    --design-input-icon-mask-image,
+    url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22><path fill=%22rgb(153, 153, 153)%22 d=%22M3 5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2H3Z%22 opacity=%22.3%22/><path fill=%22transparent%22 stroke=%22rgb(153, 153, 153)%22 stroke-width=%221.5%22 d=%22M3.25 5.25a2 2 0 0 1 2-2h5.5a2 2 0 0 1 2 2v5.5a2 2 0 0 1-2 2h-5.5a2 2 0 0 1-2-2ZM3 6.75h9.5%22/></svg>')
+  );
+  background-image: var(--design-input-icon-image);
+}
+.contact-page__decoration .form-control[type='time']:before {
+  -webkit-mask-image: var(
+    --design-input-icon-mask-image,
+    url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22><path fill=%22transparent%22 stroke=%22rgb(153, 153, 153)%22 stroke-width=%221.5%22 d=%22M2.5 8a5.5 5.5 0 1 1 11 0 5.5 5.5 0 1 1-11 0Z%22/><path fill=%22transparent%22 stroke=%22rgb(153, 153, 153)%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%221.5%22 d=%22M7.75 8.25v-3m0 3h2%22/></svg>')
+  );
+  mask-image: var(
+    --design-input-icon-mask-image,
+    url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22><path fill=%22transparent%22 stroke=%22rgb(153, 153, 153)%22 stroke-width=%221.5%22 d=%22M2.5 8a5.5 5.5 0 1 1 11 0 5.5 5.5 0 1 1-11 0Z%22/><path fill=%22transparent%22 stroke=%22rgb(153, 153, 153)%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%221.5%22 d=%22M7.75 8.25v-3m0 3h2%22/></svg>')
+  );
+  background-image: var(--design-input-icon-image);
+}
+.contact-page__decoration .form-control::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  padding: var(--design-input-padding);
+  width: 16px;
+  height: 100%;
+  padding-top: 0;
+  padding-bottom: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.contact-page__decoration:focus-within {
+  box-shadow: var(--design-input-focused-box-shadow, var(--design-input-box-shadow));
+  background: var(--design-input-focused-background, var(--design-input-background));
+}
+
+.contact-page__decoration:focus-within:after {
+  border-color: var(--design-input-focused-border-color, var(--design-input-border-color));
+  border-style: var(--design-input-focused-border-style, var(--design-input-border-style));
+  border-width: var(
+    --design-input-focused-border-width,
+    var(--design-input-border-top-width) var(--design-input-border-right-width)
+      var(--design-input-border-bottom-width) var(--design-input-border-left-width)
+  );
+}
+.form-control {
+  padding: var(--design-input-padding);
+  font-family: var(--design-input-font-family);
+  font-weight: var(--design-input-font-weight);
+  font-size: var(--design-input-font-size);
+  font-style: var(--design-input-font-style);
+  color: var(--design-input-font-color);
+  font-feature-settings: var(--design-input-font-open-type-features);
+  font-variation-settings: var(--design-input-font-variation-axes);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  height: var(--design-input-wrapper-height, 100%);
+  letter-spacing: var(--design-input-font-letter-spacing);
+  text-align: var(--design-input-font-text-alignment);
+  line-height: var(--design-input-font-line-height);
+  background: 0 0;
+  border: none;
+  overflow: hidden;
+}
+.form-control:focus-visible {
+  outline: none;
+}
+.contact-page__decoration-2:after {
+  content: '';
+  pointer-events: none;
+  box-sizing: border-box;
+  border-top-left-radius: var(--design-input-border-radius-top-left);
+  border-top-right-radius: var(--design-input-border-radius-top-right);
+  border-bottom-right-radius: var(--design-input-border-radius-bottom-right);
+  border-bottom-left-radius: var(--design-input-border-radius-bottom-left);
+  corner-shape: var(--design-input-corner-shape);
+  border-color: var(--design-input-border-color);
+  border-top-width: var(--design-input-border-top-width);
+  border-right-width: var(--design-input-border-right-width);
+  border-bottom-width: var(--design-input-border-bottom-width);
+  border-left-width: var(--design-input-border-left-width);
+  border-style: var(--design-input-border-style);
+  width: 100%;
+  height: 100%;
+  transition: var(--design-input-focused-transition);
+  transition-property:
+    border-color, border-width, border-style, border-top-left-radius, border-top-right-radius,
+    border-bottom-right-radius, border-bottom-left-radius, corner-shape;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.contact-page__decoration-2 {
+  overflow: hidden;
+}
+.contact-page__content-7 {
+  padding: var(--design-input-padding);
+  background: var(--design-input-background);
+  border-top-left-radius: var(--design-input-border-radius-top-left);
+  border-top-right-radius: var(--design-input-border-radius-top-right);
+  border-bottom-right-radius: var(--design-input-border-radius-bottom-right);
+  border-bottom-left-radius: var(--design-input-border-radius-bottom-left);
+  corner-shape: var(--design-input-corner-shape);
+  box-shadow: var(--design-input-box-shadow);
+  transition: var(--design-input-focused-transition);
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  transition-property: background, box-shadow;
+}
+.contact-page__content-7 select {
+  appearance: none;
+  padding: var(--design-input-padding);
+  background: 0 0;
+}
+.contact-page__content-7:before {
+  content: '';
+  box-sizing: content-box;
+  width: 16px;
+  padding: var(--design-input-padding);
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  background-color: var(--design-input-icon-color);
+  background-position: 10px;
+  background-image: var(--design-input-icon-image);
+  -webkit-mask-position: 10px;
+  mask-position: 10px;
+  -webkit-mask-size: 16px;
+  mask-size: 16px;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-image: var(
+    --design-input-icon-mask-image,
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path d="M 3.5 6 L 8 10.5 L 12.5 6" fill="transparent" stroke-width="1.5" stroke="rgb(153, 153, 153)" stroke-linecap="round" stroke-linejoin="round"></path></svg>')
+  );
+  mask-image: var(
+    --design-input-icon-mask-image,
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path d="M 3.5 6 L 8 10.5 L 12.5 6" fill="transparent" stroke-width="1.5" stroke="rgb(153, 153, 153)" stroke-linecap="round" stroke-linejoin="round"></path></svg>')
+  );
+  border: none;
+  padding-left: 10px;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+.contact-page__content-7 select:required:invalid {
+  color: var(--design-input-invalid-text-color);
+}
+
+.contact-page__content-7:focus-within {
+  background: var(--design-input-focused-background, var(--design-input-background));
+  box-shadow: var(--design-input-focused-box-shadow, var(--design-input-box-shadow));
+}
+
+.contact-page__content-7:focus-within:after {
+  border-color: var(--design-input-focused-border-color, var(--design-input-border-color));
+  border-style: var(--design-input-focused-border-style, var(--design-input-border-style));
+  border-width: var(
+    --design-input-focused-border-width,
+    var(--design-input-border-top-width) var(--design-input-border-right-width)
+      var(--design-input-border-bottom-width) var(--design-input-border-left-width)
+  );
+}
+.contact-page__content-7 select option {
+  color: #000;
+}
+.contact-page__content-7 select option:disabled {
+  color: #0006;
+}
+
+.privacy-page__content .privacy-page__heading-2:not(.rich-text-wrapper) {
+  --design-font-family: 'Switzer', sans-serif;
+  --design-font-family-bold: 'Switzer', sans-serif;
+  --design-font-family-bold-italic: 'Switzer', sans-serif;
+  --design-font-family-italic: 'Switzer', sans-serif;
+  --design-font-open-type-features: 'blwf' on, 'cv03' on, 'cv04' on, 'cv09' on, 'cv11' on;
+  --design-font-size: 30px;
+  --design-font-style: normal;
+  --design-font-style-bold: normal;
+  --design-font-style-bold-italic: italic;
+  --design-font-style-italic: italic;
+  --design-font-variation-axes: normal;
+  --design-font-weight: 500;
+  --design-font-weight-bold: 700;
+  --design-font-weight-bold-italic: 700;
+  --design-font-weight-italic: 500;
+  --design-letter-spacing: -0.04em;
+  --design-line-height: 1.4em;
+  --design-paragraph-spacing: 40px;
+  --design-text-alignment: start;
+  --design-text-color: var(--color-heading, #e5e5e5);
+  --design-text-decoration: none;
+  --design-text-stroke-color: initial;
+  --design-text-stroke-width: initial;
+  --design-text-transform: none;
+}
+
+/* Keep responsive heading sizes after their shared desktop preset. */
+@media (max-width: 1199px) and (min-width: 810px) {
+  .type-heading .text-display:not(.rich-text-wrapper) {
+    --design-font-size: 46px;
+  }
+}
+@media (max-width: 809px) and (min-width: 0) {
+  .type-heading .text-display:not(.rich-text-wrapper) {
+    --design-font-size: 37px;
+  }
+}
